@@ -1,0 +1,93 @@
+@import url("https://fonts.googleapis.com/css2?family=Exo+2&family=Mukta&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap");
+
+// ----- Variables -----
+
+$bg-btn: #f78afe;
+$btn-color: #1b105d;
+$text-color: #fbfafb;
+$correct-green: #7bad29;
+
+// ----- General Styling -----
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 100vw;
+  min-height: 100vh;
+  font-family: "Mukta", sans-serif;
+  text-align: center;
+  background-image: linear-gradient(
+    to left top,
+    #151b54,
+    #48357f,
+    #7e51ab,
+    #b86dd5,
+    #f78afe
+  );
+}
+
+#content {
+  text-align: center;
+}
+
+h1 {
+  font-family: "Rock Salt", cursive;
+  font-size: 2em;
+  color: $text-color;
+  margin-bottom: 0.5em;
+  margin-top: 0.5em;
+}
+
+h2 {
+  font-family: "Exo 2", sans-serif;
+  font-size: 1em;
+  width: 70%;
+  margin: 0 auto;
+  color: $text-color;
+  margin-bottom: 0.8em;
+}
+
+img {
+  width: 70%;
+}
+
+button {
+  display: block;
+  width: 50%;
+  margin: 0 auto;
+  background-color: $bg-btn;
+  border: none;
+  color: $btn-color;
+  padding: 10px 0;
+  margin-bottom: 0.5em;
+  border-radius: 5px;
+  font-size: 1em;
+  &:last-of-type {
+    margin-bottom: 1em;
+  }
+  &:focus {
+    outline: 0;
+  }
+}
+
+.correct {
+  background-color: $correct-green;
+  color: $text-color;
+}
+
+.wrong {
+  opacity: 0.5;
+}
+
+.question-container {
+  display: block;
+  transition: 3s all;
+  &:not(:nth-of-type(1)) {
+    opacity: 0;
+    display: none;
+  }
+}
