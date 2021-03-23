@@ -91,3 +91,39 @@ button {
     display: none;
   }
 }
+
+.popup {
+  display: none;
+  background-color: $text-color;
+  width: 12em;
+  color: $bg-btn;
+  border-radius: 10px;
+  position: absolute;
+  z-index: 1;
+  top: 164em;
+  padding: 10px;
+  left: 0.8em;
+  text-align: center;
+}
+
+.showPopup {
+  display: block;
+  animation: fadeIn 1s;
+  font-size: 1.5em;
+}
+
+#userTotal {
+  display: none;
+  width: 7em;
+  height: 7em;
+  font-size: 1.5em;
+  background-color: #ffd700;
+  border-radius: 50%;
+  position: absolute;
+  top: 168em;
+  left: 3.2em;
+}
+
+.blur {
+  filter: blur(8px);
+}

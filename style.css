@@ -81,4 +81,42 @@ button:focus {
   opacity: 0;
   display: none;
 }
+
+.popup {
+  display: none;
+  background-color: #fbfafb;
+  width: 12em;
+  color: #f78afe;
+  border-radius: 10px;
+  position: absolute;
+  z-index: 1;
+  top: 164em;
+  padding: 10px;
+  left: 0.8em;
+  text-align: center;
+}
+
+.showPopup {
+  display: block;
+  -webkit-animation: fadeIn 1s;
+          animation: fadeIn 1s;
+  font-size: 1.5em;
+}
+
+#userTotal {
+  display: none;
+  width: 7em;
+  height: 7em;
+  font-size: 1.5em;
+  background-color: #ffd700;
+  border-radius: 50%;
+  position: absolute;
+  top: 168em;
+  left: 3.2em;
+}
+
+.blur {
+  -webkit-filter: blur(8px);
+          filter: blur(8px);
+}
 /*# sourceMappingURL=style.css.map */

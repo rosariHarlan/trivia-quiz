@@ -68,33 +68,38 @@ let data = [
     url:
       "https://cdn.playbuzz.com/cdn//f063e8fe-ad57-485e-8211-ed2ee0d9a205/1226f177-dc1a-4142-8875-bdaa177717d7.jpg",
     question: "Which is the largest body of water?",
-    choice: ["indian Ocean", "Pacific Ocean", "Atlantic Ocean", "Nile River"],
+    choice: ["indian Ocean", "Pacific Ocean", "Atlantic Ocean", "Arctic Ocean"],
     answer: "Pacific Ocean",
   },
 ];
 
 let score = 0;
 let currentQuestion = 0;
+let number = 0;
 
 let quizContainer = document.getElementById("content");
 let header = document.createElement("h1");
 header.innerHTML = "Trivia Time!";
 quizContainer.appendChild(header);
 
-// let userTotal = document.createElement("button");
-// userTotal.innerHTML = "How did I do?";
-// userTotal.id = "userTotal";
-// quizContainer.appendChild(userTotal);
+let userTotal = document.createElement("button");
+userTotal.innerHTML = "How did I do?";
+userTotal.id = "userTotal";
+quizContainer.appendChild(userTotal);
 
-// let popUp = document.createElement("span");
-// popUp.classList.add("popup");
-// quizContainer.appendChild(popUp);
+let popUp = document.createElement("span");
+popUp.classList.add("popup");
+quizContainer.appendChild(popUp);
 
 function buildQuiz() {
   // Show next question after correct answer
   const showNext = (qIndex) => {
     let questionDiv = document.querySelectorAll(".question-container");
-    questionDiv[qIndex].style.display = "block";
+    if (qIndex === 10) {
+      return (userTotal.style.display = "block");
+    } else {
+      questionDiv[qIndex].style.display = "block";
+    }
     setTimeout(() => {
       divContent = questionDiv[currentQuestion];
       divContent.style.opacity = 1;
@@ -129,6 +134,7 @@ function buildQuiz() {
         if (showChoices.innerHTML === quizQuestion.answer) {
           score++;
           currentQuestion++;
+          number++;
           alert(`Correct! Your current score is ${score}`);
           showChoices.classList.add("correct");
           showChoices.style.animation = "shadow 3s 1";
@@ -146,21 +152,21 @@ function buildQuiz() {
       });
     }
   });
-  // document.getElementById("userTotal").addEventListener("click", (e) => {
-  //   if (score == 10) {
-  //     popUp.innerHTML = `Your total score is ${score}. <br> You're a super brain!`;
-  //     popUp.classList.toggle("showPopup");
-  //   } else if (score >= 7) {
-  //     popUp.innerHTML = `Your total score is ${score}. Good job!`;
-  //     popUp.classList.toggle("showPopup");
-  //   } else if (score >= 4) {
-  //     popUp.innerHTML = `Your total score is ${score}. <br> Could be better`;
-  //     popUp.classList.toggle("showPopup");
-  //   } else {
-  //     popUp.innerHTML = `Your total score is ${score}. <br> You should probably read more`;
-  //     popUp.classList.toggle("showPopup");
-  //   }
-  // });
+  document.getElementById("userTotal").addEventListener("click", (e) => {
+    if (score == 10) {
+      popUp.innerHTML = `Your total score is ${score}. <br> You're a super brain!`;
+      popUp.classList.toggle("showPopup");
+    } else if (score >= 7) {
+      popUp.innerHTML = `Your total score is ${score}. Good job!`;
+      popUp.classList.toggle("showPopup");
+    } else if (score >= 4) {
+      popUp.innerHTML = `Your total score is ${score}. <br> Could be better`;
+      popUp.classList.toggle("showPopup");
+    } else {
+      popUp.innerHTML = `Your total score is ${score}. <br> You should probably read more`;
+      popUp.classList.toggle("showPopup");
+    }
+  });
 }
 
 buildQuiz();
